@@ -37,7 +37,7 @@ pipeline {
                         echo $OUTPUTFILES
                         echo "The Build number is: ${params.Choose_Build}"
                         echo "The Should we clean is: ${params.Should_we_cleanup}"
-			echo "The GW hostname is: $Blah GW host}"
+			echo "The GW hostname is: ${params.GW hostname}"
                 '''
             }
  
