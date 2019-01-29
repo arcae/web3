@@ -14,7 +14,7 @@ pipeline {
             defaultValue: true,
             description: 'Checkbox parameter')
          string(name: 'GW hostname',
-             default: 'Blah GW.com'
+             default: 'Blah GW.com',
              description: 'What is the GW hostname')
      }
 
