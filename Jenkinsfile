@@ -7,10 +7,10 @@ pipeline {
      }
      
      parameters {
-         choice(name: 'Choose Build',
+         choice(name: 'Choose_Build',
            choices: '1234\n2345\n9876',
 	   description: 'What is the Build number?')
-         booleanParam(name: 'Should we cleanup?',
+         booleanParam(name: 'Should_we_cleanup?',
             defaultValue: true,
             description: 'Checkbox parameter')
          string(name: 'GW hostname',
@@ -35,8 +35,8 @@ pipeline {
                         echo 'blahhhhh'
                         echo $VELOX_YAML
                         echo $OUTPUTFILES
-                        echo "The Build number is: ${params.Build}"
-                        echo "The Should we clean is: ${params.Should we cleanup}"
+                        echo "The Build number is: ${params.Choose_Build}"
+                        echo "The Should we clean is: ${params.Should_we_cleanup}"
 			echo "The GW hostname is: $Blah GW host}"
                 '''
             }
