@@ -13,7 +13,7 @@ pipeline {
          booleanParam(name: 'Should_we_cleanup?',
             defaultValue: true,
             description: 'Checkbox parameter')
-         string(name: 'GW hostname',
+         string(name: 'GW_hostname',
              defaultValue: 'Blah GW.com',
              description: 'What is the GW hostname')
      }
@@ -39,7 +39,7 @@ pipeline {
                         echo $OUTPUTFILES
                         echo "The Build number is: ${params.Choose_Build}"
                         echo "The Should we clean is: ${params.Should_we_cleanup}"
-			echo "The GW hostname is: ${params.GW hostname}"
+			echo "The GW hostname is: ${params.GW_hostname}"
                 
             }
  
