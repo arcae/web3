@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                script.sh
+                sh script.sh
             }
  
         }
