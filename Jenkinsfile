@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                bash '''#!/bin/bash
+                sh '''#!/bin/bash
                         echo 'blahhhhh'
                 '''
             }
