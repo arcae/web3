@@ -32,13 +32,15 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''#!/bin/bash
+                     sh script.sh
+                   '''
                         echo 'blahhhhh'
                         echo $VELOX_YAML
                         echo $OUTPUTFILES
                         echo "The Build number is: ${params.Choose_Build}"
                         echo "The Should we clean is: ${params.Should_we_cleanup}"
 			echo "The GW hostname is: ${params.GW hostname}"
-                '''
+                
             }
  
         }
