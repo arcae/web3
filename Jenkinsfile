@@ -35,6 +35,9 @@ pipeline {
                         echo 'blahhhhh'
                         echo $VELOX_YAML
                         echo $OUTPUTFILES
+                        echo "The Build number is: ${params.Build}"
+                        echo "The Should we clean is: ${params.Should we cleanup}"
+			echo "The GW hostname is: $Blah GW host}"
                 '''
             }
  
