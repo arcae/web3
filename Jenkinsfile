@@ -16,6 +16,10 @@ pipeline {
             steps {
                 echo 'Deploying....'
             }
+            steps {
+                script.sh
+           }
+ 
         }
     }
 }
