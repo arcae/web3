@@ -7,7 +7,7 @@ pipeline {
      }
      
      parameters {
-         choice(Build: 'Choose Build',
+         choice(name: 'Choose Build',
            choices: '1234\n2345\n9876',
 	   description: 'What is the Build number?')
          booleanParam(name: 'Should we cleanup?',
