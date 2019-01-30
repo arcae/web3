@@ -26,9 +26,10 @@ properties([
     ])
 ])
 
-echo "Server=${params.Server}" >> UserInput
-echo "YMLPath=${params.YMLPath}" >> UserInput
-echo "WSDLPath=${params.WSDLPath}" >> UserInput
+sh "mkdir -p output"
+//echo "Server=${params.Server}" >> UserInput
+//echo "YMLPath=${params.YMLPath}" >> UserInput
+//echo "WSDLPath=${params.WSDLPath}" >> UserInput
 
 
 
