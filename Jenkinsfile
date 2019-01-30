@@ -1,48 +1,96 @@
-pipeline {
-    agent any
+#! groovy
 
-    environment {
-        VELOX_YAML='/blah/home'
-        OUTPUTFILES='/tmp/files'
-     }
-     
-     parameters {
-         choice(name: 'Choose_Build',
-           choices: '1234\n2345\n9876',
-	   description: 'What is the Build number?')
-         booleanParam(name: 'Should_we_cleanup?',
-            defaultValue: true,
-            description: 'Checkbox parameter')
-         string(name: 'GW_hostname',
-             defaultValue: 'Blah GW.com',
-             description: 'What is the GW hostname')
-     }
+// Load shared pipeline library
+@Library('velox') _
 
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
+properties([
+    buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '14', numToKeepStr: '32')),
+    durabilityHint('PERFORMANCE_OPTIMIZED'),
+    [$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false],
+    parameters([
+        string(name: "Server", description: "The Ingress URL of the System under Test"),
+        string(name: "YMLPath", defaultValue: "GoodVeloxAPIs", description: "Path to the YAML files"),
+        string(name: "WSDLPath", defaultValue: "GoodVeloxAPIs/Soap_APIs", description: "Path to the WSDL files")
+        string(name: "Gateway Service", defaultValue: "datapower-gateway ", description "Gateway Type")
+        string(name: "GW_Endpoint", description: :"The Ingress URL of the Gateway endpoint")
+        string(name: "GW_API_Endpoint", description: "The Ingress URL of the Gateway API endpoint")
+        string(name: "Portal_Endpoint", description: "The Ingress URL of the Portal endpoint")
+        string(name: "Portal_API_Endpoint", description: "The Ingress URL of the Portal API endpoint")
+        string(name: "Analytics_Endpoint", description: "The Ingress URL of the Analytics endpoint")
+        string(name: "Consumer_Endpoint", description: "The Ingress URL of the Consumer endpoint")
+        string(name: "APIC_Release", description: "Input release version")
+        string(name: "Build#", description: "Input build number"
+
+        run(name: 'applianceBuild', projectName: "velox/appliance/${releaseName}", filter: 'SUCCESSFUL', description: 'The appliance build to deploy' ),,
+        string(name: "datapowerVersion", defaultValue: "latest", description: "The Datapower version to deploy (e.g. '2018.4.1.0') or 'latest'."),
+        booleanParam(name: "datapowerV5Compat", defaultValue: false, description: "Use v5 compatibility in Datapower's API Connect Gateway Service."),
+        string(name: "publicKey", defaultValue: "none", description: "Contents of your id_rsa.pub file (i.e. your public key, prefixed with key type). Required to SSH into the velox appliances."),
+
+    ])
+])
+
+echo "Server=${params.Server}" >> UserInput
+echo "YMLPath=${params.YMLPath}" >> UserInput
+echo "WSDLPath=$[params.WSDLPath}" >> UserInput
+
+
+// Global vars
+def stackData
+
+
+veloxPipeline(nodeVersion: '8') { p ->
+  def server = Artifactory.server 'na-artifactory'
+  def buildInfo = Artifactory.newBuildInfo
+
+
+        // Download apic from Artfactory
+        stage('Download APIC files') {
+            def downloadTasks = [:]
+            def pattern, build, downloadSpec
+            // apic
+            def apicDownloadSpec = """{
+                "files": [{
+                    "pattern": "na.artifactory.swg-devops.com/artifactory/list/apic-rel-docker/apic-release-${params.APIC_RELEASE}/${params.BUILD}/toolkit/linux/apic",
+                    "target": "./",
+                    "flat": true
+                }]
+            }"""
+            downloadTasks["download-apic"] = {
+                for (def a = 0; a < artifactoryServers.size(); a++) {
+                    def arfServer = artifactoryServers[a]
+                    arfServer.download(apicDownloadSpec)
+
+                    // Artifactory fails silently in some situations, so check file is there
+                    if (fileExists(file: "apic")) {
+                        // Install it so we don't have to worry about the path
+                        sh """
+                            $scriptEcho
+                            install apic ~/bin
+                        """
+                        break
+                    }
+                }
+                if (!fileExists(file: "apic")) {
+                    error("apic not downloaded")
+                }
             }
+         //Download jq tool
+        stage('Download jq tool') {
+                sh """
+
+                    wget -O jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+                    cp jq-linux64 jq
+                    chmod +x ./jq
+                    cp jq /usr/bin
+
+                   """
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
+
+        stage(''
+
+
         }
-        stage('Deploy') {
-            steps {
-                sh '''#!/bin/bash
-                     sh script.sh
-                        echo 'blahhhhh'
-                        echo $VELOX_YAML
-                        echo $OUTPUTFILES
-                    '''
-                        echo "The Build number is: ${params.Choose_Build}"
-                        echo "The Should we clean is: ${params.Should_we_cleanup}"
-			echo "The GW hostname is: ${params.GW_hostname}"
-                
-            }
- 
-        }
-    }
-}
+
+
+
+
