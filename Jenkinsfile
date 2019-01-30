@@ -30,6 +30,9 @@ node {
         stage('Build') {
                 echo 'Building..'
                 echo "Server=${params.Server}"
+                echo "Server=${params.Server}" 
+                echo "YMLPath=${params.YMLPath}" 
+                echo "WSDLPath=${params.WSDLPath}" 
         }
     }  
 
