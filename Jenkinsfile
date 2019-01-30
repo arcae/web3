@@ -32,62 +32,6 @@ echo "YMLPath=${params.YMLPath}" >> UserInput
 echo "WSDLPath=${params.WSDLPath}" >> UserInput
 
 
-// Global vars
-def stackData
-
-
-veloxPipeline(nodeVersion: '8') { p ->
-  def server = Artifactory.server 'na-artifactory'
-  def buildInfo = Artifactory.newBuildInfo
-
-
-        // Download apic from Artfactory
-        stage('Download APIC files') {
-            def downloadTasks = [:]
-            def pattern, build, downloadSpec
-            // apic
-            def apicDownloadSpec = """{
-                "files": [{
-                    "pattern": "na.artifactory.swg-devops.com/artifactory/list/apic-rel-docker/apic-release-${params.APIC_RELEASE}/${params.BUILD}/toolkit/linux/apic",
-                    "target": "./",
-                    "flat": true
-                }]
-            }"""
-            downloadTasks["download-apic"] = {
-                for (def a = 0; a < artifactoryServers.size(); a++) {
-                    def arfServer = artifactoryServers[a]
-                    arfServer.download(apicDownloadSpec)
-
-                    // Artifactory fails silently in some situations, so check file is there
-                    if (fileExists(file: "apic")) {
-                        // Install it so we don't have to worry about the path
-                        sh """
-                            $scriptEcho
-                            install apic ~/bin
-                        """
-                        break
-                    }
-                }
-                if (!fileExists(file: "apic")) {
-                    error("apic not downloaded")
-                }
-            }
-         //Download jq tool
-        stage('Download jq tool') {
-                sh """
-
-                    wget -O jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
-                    cp jq-linux64 jq
-                    chmod +x ./jq
-                    cp jq /usr/bin
-
-                   """
-        }
-
-
-
-        }
-
 
 
 
