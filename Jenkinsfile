@@ -28,6 +28,8 @@ properties([
 
 node {
         stage('Build') {
+                sh 'touch test.txt'
+                echo $PWD
                 echo 'Building..'
                 echo "Server=${params.Server}"
                 echo "Server=${params.Server}" 
