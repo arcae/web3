@@ -26,11 +26,12 @@ properties([
     ])
 ])
 
-
+node {
         stage('Build') {
                 echo 'Building..'
+                echo "Server=${params.Server}"
         }
-
+    }  
 
 //sh "mkdir -p output"
 //echo "Server=${params.Server}" >> UserInput
