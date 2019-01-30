@@ -84,7 +84,6 @@ veloxPipeline(nodeVersion: '8') { p ->
                    """
         }
 
-        stage(''
 
 
         }
