@@ -29,7 +29,7 @@ properties([
 
 echo "Server=${params.Server}" >> UserInput
 echo "YMLPath=${params.YMLPath}" >> UserInput
-echo "WSDLPath=$[params.WSDLPath}" >> UserInput
+echo "WSDLPath=${params.WSDLPath}" >> UserInput
 
 
 // Global vars
