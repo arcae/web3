@@ -6,7 +6,6 @@
 properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '14', numToKeepStr: '32')),
     durabilityHint('PERFORMANCE_OPTIMIZED'),
-    [$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false],
     parameters([
         string(name: "Server", description: "The Ingress URL of the System under Test"),
         string(name: "YMLPath", defaultValue: "GoodVeloxAPIs", description: "Path to the YAML files"),
