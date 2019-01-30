@@ -1,7 +1,7 @@
 #! groovy
 
 // Load shared pipeline library
-@Library('velox') _
+//@Library('velox') _
 
 properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '14', numToKeepStr: '32')),
