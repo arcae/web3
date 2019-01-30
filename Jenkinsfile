@@ -28,9 +28,7 @@ properties([
 
 
         stage('Build') {
-            steps {
                 echo 'Building..'
-            }
         }
 
 
