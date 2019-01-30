@@ -11,7 +11,7 @@ properties([
         string(name: "Server", description: "The Ingress URL of the System under Test"),
         string(name: "YMLPath", defaultValue: "GoodVeloxAPIs", description: "Path to the YAML files"),
         string(name: "WSDLPath", defaultValue: "GoodVeloxAPIs/Soap_APIs", description: "Path to the WSDL files"),
-        string(name: "Gateway Service", defaultValue: "datapower-gateway", description "Gateway Type"),
+        string(name: "Gateway Service", defaultValue: "datapower-gateway", description: "Gateway Type"),
         string(name: "GW_Endpoint", description: "The Ingress URL of the Gateway endpoint"),
         string(name: "GW_API_Endpoint", description: "The Ingress URL of the Gateway API endpoint"),
         string(name: "Portal_Endpoint", description: "The Ingress URL of the Portal endpoint"),
