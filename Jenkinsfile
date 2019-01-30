@@ -27,13 +27,13 @@ properties([
 ])
 
 
-stages {
         stage('Build') {
             steps {
                 echo 'Building..'
             }
         }
-}
+
+
 //sh "mkdir -p output"
 //echo "Server=${params.Server}" >> UserInput
 //echo "YMLPath=${params.YMLPath}" >> UserInput
