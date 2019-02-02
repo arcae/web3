@@ -21,6 +21,7 @@ node {
                 sh 'touch test.txt'
                 //echo 'Building..'
                 writeFile file: 'test.txt', text: "Server=${params.Server}"
+                writeFile file: 'test.txt', text: "YMLPath=${params.YMLPath}"
                 sh 'cat test.txt'
                 sh './goldenpath.sh'
         }
