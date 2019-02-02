@@ -1,4 +1,4 @@
-echo 'This is my' ${params.Server}
+echo 'This is my' $Server
 
 
 
