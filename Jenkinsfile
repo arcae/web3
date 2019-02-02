@@ -27,7 +27,7 @@ node {
                 echo "Server=${params.Server}" 
                 echo "YMLPath=${params.YMLPath}" 
                 echo "WSDLPath=${params.WSDLPath}" 
-                sh ./goldenpath.sh
+                sh './goldenpath.sh'
         }
 }
 
