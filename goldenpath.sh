@@ -1,5 +1,5 @@
-echo 'This is my' $Server
-echo 'This is my path' $YMLPath
+echo 'This is my' $Bloat
+echo 'This is my path' $Football
 
 
 
