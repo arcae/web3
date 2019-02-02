@@ -29,14 +29,6 @@ node {
                 echo "WSDLPath=${params.WSDLPath}" 
                 sh ./goldenpath.sh
         }
-    }  
-
-//sh "mkdir -p output"
-//echo "Server=${params.Server}" >> UserInput
-//echo "YMLPath=${params.YMLPath}" >> UserInput
-//echo "WSDLPath=${params.WSDLPath}" >> UserInput
-
-
-
+}
 
 
