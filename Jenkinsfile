@@ -28,7 +28,6 @@ node {
                 writeFile file: 'test.txt', text: "Server=${params.Server}"
                 echo "Server=${params.Server}" 
                 sh 'cat test.txt'
-                sh 'source test.txt'
                 echo "WSDLPath=${params.WSDLPath}" 
                 sh './goldenpath.sh'
         }
