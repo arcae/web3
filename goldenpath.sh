@@ -1,3 +1,5 @@
-echo 'This is my' $Server
+echo 'This is my' ${params.Server}
+
+
 
 
