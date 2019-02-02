@@ -25,10 +25,8 @@ node {
                 sh 'touch test.txt'
                 echo 'Building..'
                 echo "Server=${env.Server}"
-                writeFile file: 'test.txt', text: "Server=${params.Server}"
-                echo "Server=${params.Server}" 
+                writeFile file: 'test.txt', text: "SERVER=${env.SERVER}"
                 sh 'cat test.txt'
-                echo "WSDLPath=${params.WSDLPath}" 
                 sh './goldenpath.sh'
         }
 }
