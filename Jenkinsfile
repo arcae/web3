@@ -20,8 +20,8 @@ node {
                 git credentialsId: '8b721918-37dd-4695-931e-85dc9cf1a630', url: 'https://github.com/arcae/web3.git'
                 sh 'touch test.txt'
                 //echo 'Building..'
-                writeFile file: 'test.txt', text: "Server=${params.Server}"
-                writeFile file: 'test.txt', text: "YMLPath=${params.YMLPath}"
+                //writeFile file: 'test.txt', text: "Server=${params.Server}"
+                //writeFile file: 'test.txt', text: "YMLPath=${params.YMLPath}"
                 sh 'cat test.txt'
                 sh './goldenpath.sh'
         }
