@@ -27,7 +27,8 @@ node {
                 echo "Server=${env.Server}"
                 writeFile file: 'test.txt', text: "Server=${params.Server}"
                 echo "Server=${params.Server}" 
-                echo "YMLPath=${params.YMLPath}" 
+                sh 'cat test.txt'
+                sh 'source test.txt'
                 echo "WSDLPath=${params.WSDLPath}" 
                 sh './goldenpath.sh'
         }
