@@ -20,6 +20,8 @@ environment{
 
 node {
         stage('Build') {
+
+                git credentialsId: '8b721918-37dd-4695-931e-85dc9cf1a630', url: 'https://github.com/arcae/web3.git'
                 sh 'touch test.txt'
                 echo 'Building..'
                 echo "Server=${env.Server}"
