@@ -1,3 +1,3 @@
-echo 'This is my' $SERVER
+echo 'This is my' $MYSERVER
 
 
