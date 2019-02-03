@@ -9,8 +9,8 @@ properties([
     parameters([
         string(name: "Server", defaultValue: "myserver",description: "Server type"),
         choice(name: "gateway_service_type", choices:['datapower-gateway','V6-gateway'],description: "Type of gateway used"),
-        string(name: "YAMLPath", defaultValue: "GoodVeloxAPI/", description: "Path to the YAML files"),
-        string(name: "WSDLPath", defaultValue: "GoodVeloxAPI/SoapWSDL/", description: "Path to WDSL file"
+        string(name: "YAMLPath", defaultValue: "GoodVeloxAPI", description: "Path to the YAML files"),
+        string(name: "WSDLPath", defaultValue: "GoodVeloxAPI/SoapWSDL", description: "Path to WDSL file")
     ])
 ])
 
