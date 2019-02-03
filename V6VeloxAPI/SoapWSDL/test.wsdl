@@ -1,0 +1,5 @@
+echo 'This is from V6VeloxAPI slash SoapWSDL dir'
+
+echo 'This is the value of WSDLPath' $WSDLPath
+
+

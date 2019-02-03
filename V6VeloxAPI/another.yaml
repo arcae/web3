@@ -1,0 +1,5 @@
+echo 'This is from inside V6VeloxAPI dir'
+
+echo 'This is the value of YAMLPath ====>' $YAMLPath
+
+
