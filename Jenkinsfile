@@ -7,8 +7,9 @@ properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '14', numToKeepStr: '32')),
     durabilityHint('PERFORMANCE_OPTIMIZED'),
     parameters([
-        string(name: "Bloat", description: "The Ingress URL of the System under Test"),
-        string(name: "Football", defaultValue: "GoodVeloxAPIs", description: "Path to the YAML files")
+        string(name: "Server", defaultValue: "myserver",description: "Server type"),
+        choice(name: "gateway_service_type", choices:['datapower-gateway','V6-gateway'],description: "Type of gateway used"),
+        string(name: "YAMLPath", defaultValue: "GoodVeloxAPIs", description: "Path to the YAML files")
     ])
 ])
 
