@@ -14,6 +14,8 @@ then
    cat $YAMLPath/test.yaml
    echo '+++++++++++Reading wsdl file in subdir+++++++++++++++++++++'
    cat $WSDLPath/anotherfile.wsdl
+else
+   echo 'IF failed!!!'
 fi
 
 
