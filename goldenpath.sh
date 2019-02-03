@@ -12,8 +12,14 @@ if [ $YAMLPath == "GoodVeloxAPI" ]
 then
    echo 'Reading file inside GoodVeloxAPI dir' 
    cat $YAMLPath/test.yaml
-   echo '+++++++++++Reading wsdl file in subdir+++++++++++++++++++++'
+   echo '+++++++++++Reading wsdl file in GoodVelox  subdir+++++++++++++++++++++'
    cat $WSDLPath/anotherfile.wsdl
+elif [ $YAMLPath == "V6VeloxAPI" ]
+then
+   echo 'Reading file inside V6Velox dir'
+   cat $YAMLPath/another.yaml
+   echo '********************** Reading wsdl file in V6Velox subdir***********'
+   cat $WSDLPath/test.wsdl
 else
    echo 'IF failed!!!'
 fi
