@@ -8,6 +8,8 @@ echo 'Reading file inside GoodVeloxAPI dir'
 cat $YAMLPath/test.yaml
 
 
+echo '+++++++++++Reading wsdl file in subdir+++++++++++++++++++++'
+cat $WSDLPath/anotherfile.wsdl
 
 
 
