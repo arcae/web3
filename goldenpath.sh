@@ -4,6 +4,10 @@ echo 'This is my YAMLPath' $YAMLPath
 
 
 
+echo 'Reading file inside GoodVeloxAPI dir' 
+cat $YAMLPath/test.yaml
+
+
 
 
 
