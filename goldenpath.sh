@@ -8,7 +8,7 @@ echo 'This is value of WSDLPath' $WSDLPath
 
 
 
-if [[ $YAMLPath == "GoodVeloxAPI" ]] && [[$WSDLPath == "GoodVeloxAPI/SoapWSDL" ]]
+if ([ $YAMLPath == "GoodVeloxAPI" ] && [$WSDLPath == "GoodVeloxAPI/SoapWSDL" ])
 then
    echo 'Reading file inside GoodVeloxAPI dir' 
    cat $YAMLPath/test.yaml
