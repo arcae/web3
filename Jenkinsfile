@@ -26,7 +26,7 @@ node {
                 //writeFile file: 'test.txt', text: "Server=${params.Server}"
                 //writeFile file: 'test.txt', text: "YMLPath=${params.YMLPath}"
                 //sh 'cat test.txt'
-                echo 'CMSetup value is' ${params.CMSetup}
+                //echo 'CMSetup value is' ${params.CMSetup}
                 sh './goldenpath.sh'
         }
 }
