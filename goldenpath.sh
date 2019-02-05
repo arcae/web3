@@ -35,8 +35,6 @@ fi
 if $CMSetup
 then
    CloudManager()
-else
-  echo 'Did not enter CloudManager()'
 fi
 
 
