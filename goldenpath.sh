@@ -6,6 +6,13 @@ echo 'This is my YAMLPath' $YAMLPath
 echo 'This is value of WSDLPath' $WSDLPath
 
 
+CloudManager(){
+
+  echo 'Inside CloudManager funtion
+
+}
+
+
 
 
 if [ $YAMLPath == "GoodVeloxAPI" ]
@@ -24,6 +31,9 @@ else
    echo 'IF failed!!!'
 fi
 
+if "$CMSetup" ;then
+    CloudManager()
+fi
 
 
 
