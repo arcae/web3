@@ -10,7 +10,6 @@ properties([
         string(name: "Server", defaultValue: "myserver",description: "Server type"),
         choice(name: "gateway_service_type", choices:['datapower-gateway','V6-gateway'],defaultValue:'datapower-gateway',description: "Type of gateway used"),
         choice(name: "YAMLPath", choices:["GoodVeloxAPI","V6VeloxAPI"], defaultValue: "GoodVeloxAPI", description: "Path to the YAML files"),
-        choice(name: "CMSetup",choices:["True","False"], defaultValue: "False", description: "Cloud manager setup call "),
         choice(name: "WSDLPath", choices:["GoodVeloxAPI/SoapWSDL", "V6VeloxAPI/SoapWSDL"], defaultValue: "GoodVeloxAPI/SoapWSDL", description: "Path to WDSL file")
     ])
 ])
@@ -22,7 +21,7 @@ node {
 
                 git credentialsId: '8b721918-37dd-4695-931e-85dc9cf1a630', url: 'https://github.com/arcae/web3.git'
                 //sh 'touch test.txt'
-                //echo 'Building..'
+                echo 'Building..'
                 //writeFile file: 'test.txt', text: "Server=${params.Server}"
                 //writeFile file: 'test.txt', text: "YMLPath=${params.YMLPath}"
                 //sh 'cat test.txt'

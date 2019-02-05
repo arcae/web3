@@ -6,13 +6,6 @@ echo 'This is my YAMLPath' $YAMLPath
 echo 'This is value of WSDLPath' $WSDLPath
 
 
-CloudManager(){
-
-  echo 'Inside CloudManager funtion
-
-}
-
-
 
 
 if [ $YAMLPath == "GoodVeloxAPI" ]
