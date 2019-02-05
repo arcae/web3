@@ -37,5 +37,4 @@ echo 'After first if statement'
 if [ $CMSetup == "true" ]
 then 
    echo 'CMSetup is true'
-   CloudManager()
 fi
