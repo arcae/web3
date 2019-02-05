@@ -4,6 +4,7 @@ echo 'This is my server:' $Server
 echo 'This is my gateway type' $gateway_service_type
 echo 'This is my YAMLPath' $YAMLPath
 echo 'This is value of WSDLPath' $WSDLPath
+echo 'This is value of CMSetip' $CMSetup
 
 
 
