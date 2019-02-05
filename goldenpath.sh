@@ -31,9 +31,6 @@ else
    echo 'IF failed!!!'
 fi
 
-if "$CMSetup" ;then
-    CloudManager()
-fi
 
 
 
