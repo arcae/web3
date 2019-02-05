@@ -32,9 +32,10 @@ else
 fi
 
 
-if $CMSetup
-then
+if $CMSetup ;then
    CloudManager()
+else
+  echo 'Blahaa'
 fi
 
 
