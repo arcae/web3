@@ -31,14 +31,11 @@ else
    echo 'IF failed!!!'
 fi
 
+echo 'After first if statement'
 
-if "$CMSetup" ;then
+
+if [ $CMSetup == "true" ]
+then 
+   echo 'CMSetup is true'
    CloudManager()
-else
-  echo 'Blahaa'
 fi
-
-
-
-
-
