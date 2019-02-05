@@ -8,6 +8,12 @@ echo 'This is value of CMSetip' $CMSetup
 
 
 
+CloudManager(){
+
+  echo 'Inside CloudManager function'
+
+}
+
 
 if [ $YAMLPath == "GoodVeloxAPI" ]
 then
@@ -23,6 +29,14 @@ then
    cat $WSDLPath/test.wsdl
 else
    echo 'IF failed!!!'
+fi
+
+
+if $CMSetup
+then
+   CloudManager()
+else
+  echo 'Did not enter CloudManager()'
 fi
 
 
