@@ -17,20 +17,6 @@ properties([
 
 
 node {
-      echo "Server param value is " ${params.Server}
-      try {
-        // do something that fails
-        if("${params.Server}" == ''){
-        echo "My server param is " ${params.Server}
-    }
-    } catch (ex) {
-        echo "Result from inside catch block  ${currentBuild.result}"
-        currentBuild.result = 'ABORTED'
-        return
-        
-    }
-    echo "RESULT outside try: ${currentBuild.result}"
-
 
         stage('Build') {
 
