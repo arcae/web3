@@ -23,13 +23,13 @@ node {
         // do something that fails
         if (!$params.Server?.trim()){
         currentBuild.result = 'ABORTED'
-        echo "RESULT: ${currentBuild.result}"
-        return
+        echo "RESULT from inside try block: ${currentBuild.result}"
+        exit 1
     }
     } catch (Exception err) {
         currentBuild.result = 'ABORTED'
     }
-    echo "RESULT: ${currentBuild.result}"
+    echo "RESULT outside try: ${currentBuild.result}"
 
 
         stage('Build') {
