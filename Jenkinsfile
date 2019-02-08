@@ -22,8 +22,9 @@ node {
 
       try {
         // do something that fails
+        if("${params.Server}" == null){
         echo "My server param is " ${params.Server}
-        
+    }
     } catch (ex) {
         echo "Result from inside catch block  ${currentBuild.result}"
         currentBuild.result = 'ABORTED'
