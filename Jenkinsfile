@@ -7,7 +7,7 @@ properties([
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '14', numToKeepStr: '32')),
     durabilityHint('PERFORMANCE_OPTIMIZED'),
     parameters([
-        string(name: "Server", description: "Server type"),
+        string(name: "Server",defaultValue:'', description: "Server type"),
         choice(name: "gateway_service_type", choices:['datapower-gateway','V6-gateway'],defaultValue:'datapower-gateway',description: "Type of gateway used"),
         choice(name: "YAMLPath", choices:["GoodVeloxAPI","V6VeloxAPI"], defaultValue: "GoodVeloxAPI", description: "Path to the YAML files"),
         booleanParam(name: "CMSetup", defaultValue:false, description: "Cloud manager setup needed"),
@@ -20,7 +20,7 @@ node {
       echo "Server param value is " ${params.Server}
       try {
         // do something that fails
-        if("${params.Server}"){
+        if("${params.Server}" == ''){
         echo "My server param is " ${params.Server}
     }
     } catch (ex) {
