@@ -16,9 +16,12 @@ properties([
 ])
 
 
-try {
+
+node {
+
+      try {
         // do something that fails
-        if (!$params.Server?.trim()){ 
+        if (!$params.Server?.trim()){
         currentBuild.result = 'ABORTED'
         echo "RESULT: ${currentBuild.result}"
         return
@@ -29,9 +32,6 @@ try {
     echo "RESULT: ${currentBuild.result}"
 
 
-
-
-node {
         stage('Build') {
 
                 git credentialsId: '8b721918-37dd-4695-931e-85dc9cf1a630', url: 'https://github.com/arcae/web3.git'
