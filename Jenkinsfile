@@ -25,9 +25,11 @@ node {
         currentBuild.result = 'ABORTED'
         echo "RESULT from inside try block: ${currentBuild.result}"
         return
+        
     }
     } catch (Exception err) {
         currentBuild.result = 'ABORTED'
+        
     }
     echo "RESULT outside try: ${currentBuild.result}"
 
