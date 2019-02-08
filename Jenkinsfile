@@ -22,7 +22,7 @@ node {
 
       try {
         // do something that fails
-        if (${params.Server}?.trim()){
+        if (!"${params.Server}"){
         currentBuild.result = 'ABORTED'
         echo "RESULT from inside try block: ${currentBuild.result}"
         return
