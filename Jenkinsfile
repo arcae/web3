@@ -22,7 +22,7 @@ try {
         currentBuild.result = 'ABORTED'
     }
     } catch (Exception err) {
-        currentBuild.result = 'FAILURE'
+        currentBuild.result = 'ABORTED'
     }
     echo "RESULT: ${currentBuild.result}"
 
