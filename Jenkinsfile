@@ -22,13 +22,10 @@ node {
 
       try {
         // do something that fails
-        if (!"${params.Server}"){
-        currentBuild.result = 'ABORTED'
-        echo "RESULT from inside try block: ${currentBuild.result}"
-        return
+        echo "My server param is " ${params.Server}
         
-    }
     } catch (Exception err) {
+        echo "Result from inside catch block  ${currentBuild.result}"
         currentBuild.result = 'ABORTED'
         
     }
