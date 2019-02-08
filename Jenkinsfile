@@ -18,7 +18,7 @@ properties([
 
 try {
         // do something that fails
-        if ($params.Server == null){ 
+        if (!$params.Server?.trim()){ 
         currentBuild.result = 'ABORTED'
     }
     } catch (Exception err) {
