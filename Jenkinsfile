@@ -20,6 +20,8 @@ try {
         // do something that fails
         if (!$params.Server?.trim()){ 
         currentBuild.result = 'ABORTED'
+        echo "RESULT: ${currentBuild.result}"
+        return
     }
     } catch (Exception err) {
         currentBuild.result = 'ABORTED'
