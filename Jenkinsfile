@@ -16,6 +16,18 @@ properties([
 ])
 
 
+try {
+        // do something that fails
+        if ($params.Server == null){ 
+        currentBuild.result = 'ABORTED'
+    }
+    } catch (Exception err) {
+        currentBuild.result = 'FAILURE'
+    }
+    echo "RESULT: ${currentBuild.result}"
+
+
+
 
 node {
         stage('Build') {
