@@ -24,7 +24,7 @@ node {
         // do something that fails
         echo "My server param is " ${params.Server}
         
-    } catch () {
+    } catch (ex) {
         echo "Result from inside catch block  ${currentBuild.result}"
         currentBuild.result = 'ABORTED'
         return
