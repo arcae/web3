@@ -15,11 +15,13 @@ properties([
     ])
 ])
 
-
+environment{
+   Server = ${params.Server}
+}
 
 node {
-      echo "The value of Server param is " ${params.Server}
-
+      echo "Server env value is" env.Server
+      echo "Server param value is " ${params.Server}
       try {
         // do something that fails
         if("${params.Server}" == null){
