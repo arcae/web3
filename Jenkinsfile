@@ -20,7 +20,7 @@ node {
       echo "Server param value is " ${params.Server}
       try {
         // do something that fails
-        if("${params.Server}" == ){
+        if("${params.Server}"){
         echo "My server param is " ${params.Server}
     }
     } catch (ex) {
