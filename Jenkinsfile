@@ -18,10 +18,11 @@ properties([
 
 
 node {
+      echo "The value of Server param is " ${params.Server}
 
       try {
         // do something that fails
-        if ($params.Server == ' '){
+        if (!${params.Server}){
         currentBuild.result = 'ABORTED'
         echo "RESULT from inside try block: ${currentBuild.result}"
         return
