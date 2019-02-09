@@ -33,7 +33,7 @@ try {
 
 node {
         stage('Build') {
-
+                echo " Workspace is $workspace"
                 git credentialsId: '8b721918-37dd-4695-931e-85dc9cf1a630', url: 'https://github.com/arcae/web3.git'
                 echo "The value of Server param is ${params.Server}"
                 def filename = 'hilo.yaml'
