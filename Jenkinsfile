@@ -40,6 +40,8 @@ node {
                    if(fileExists('hilo.yaml')){
                      echo "Yes it exists"
                      readFile('hilo.yaml')
+                   else
+                     echo "Does not exist"
                 }
                 }
                 //sh 'touch test.txt'
