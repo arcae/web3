@@ -11,6 +11,7 @@ properties([
         choice(name: "gateway_service_type", choices:['datapower-gateway','V6-gateway'],defaultValue:'datapower-gateway',description: "Type of gateway used"),
         choice(name: "YAMLPath", choices:["GoodVeloxAPI","V6VeloxAPI"], defaultValue: "GoodVeloxAPI", description: "Path to the YAML files"),
         booleanParam(name: "CMSetup", defaultValue:false, description: "Cloud manager setup needed"),
+        file(name: "hilo.yaml", description: "Path to hilo file"),
         choice(name: "WSDLPath", choices:["GoodVeloxAPI/SoapWSDL", "V6VeloxAPI/SoapWSDL"], defaultValue: "GoodVeloxAPI/SoapWSDL", description: "Path to WDSL file")
     ])
 ])
@@ -31,11 +32,13 @@ try {
 
 
 node {
-
         stage('Build') {
 
                 git credentialsId: '8b721918-37dd-4695-931e-85dc9cf1a630', url: 'https://github.com/arcae/web3.git'
                 echo "The value of Server param is ${params.Server}"
+                if(fileExists(file: 'hilo.yaml'){
+                  readFile('hilo.yaml')
+                }
                 //sh 'touch test.txt'
                 echo 'Building..'
                 //writeFile file: 'test.txt', text: "Server=${params.Server}"
