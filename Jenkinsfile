@@ -37,9 +37,9 @@ node {
                 git credentialsId: '8b721918-37dd-4695-931e-85dc9cf1a630', url: 'https://github.com/arcae/web3.git'
                 echo "The value of Server param is ${params.Server}"
                 script {
-                   if(fileExists('hilo')){
+                   if(fileExists(file:'hilo.yaml')){
                      echo "Yes it exists"
-                     readFile('hilo')
+                     readFile('hilo.yaml')
                    }
                    else{
                      echo "Does not exist"
