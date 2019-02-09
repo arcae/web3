@@ -39,7 +39,7 @@ node {
                 def filename = 'hilo.yaml'
                 def data = readYaml file: filename
                 
-                data.cloud.name = RegiCloud
+                data.cloud.name = "RegiCloud"
             
                 sh "rm $filename"
                 writeYaml file: filename, data: data
