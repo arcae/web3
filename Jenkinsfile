@@ -41,7 +41,7 @@ node {
                 
                 data.cloud.name = RegiCloud
             
-                sh "rm $filename
+                sh "rm $filename"
                 writeYaml file: filename, data: data
                  
                 //sh 'touch test.txt'
