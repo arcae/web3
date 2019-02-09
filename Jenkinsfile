@@ -17,7 +17,7 @@ properties([
 
 try {
         // do something that fails
-        if (Server?.trim()){ 
+        if (Server == null || Server == ""){ 
         currentBuild.result = 'ABORTED'
         echo "Result inside try if cond: ${currentBuild.result}"
         return
