@@ -36,15 +36,14 @@ node {
 
                 git credentialsId: '8b721918-37dd-4695-931e-85dc9cf1a630', url: 'https://github.com/arcae/web3.git'
                 echo "The value of Server param is ${params.Server}"
-                script {
-                   if(fileExists(file:'hilo.yaml')){
-                     echo "Yes it exists"
-                     readFile('hilo.yaml')
-                   }
-                   else{
-                     echo "Does not exist"
-                }
-                }
+                def filename = 'hilo.yaml'
+                def data readYaml file: filename
+                
+                data.cloud.name = RegiCloud
+            
+                sh "rm $filename
+                writeYaml file: filename, data:data
+                 
                 //sh 'touch test.txt'
                 echo 'Building..'
                 //writeFile file: 'test.txt', text: "Server=${params.Server}"
