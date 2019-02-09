@@ -19,6 +19,7 @@ try {
         // do something that fails
         if (Server == null || Server == ""){ 
         currentBuild.result = 'ABORTED'
+        echo "ABORTING build since parameters are missing"
         echo "Result inside try if cond: ${currentBuild.result}"
         return
     }
