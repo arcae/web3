@@ -62,7 +62,7 @@ node {
 		    cd openshift-origin-client-tools-v3.9.0-191fece-linux-64bit
 		    echo $pwd
 		    ls -l
-		    cp oc /usr/local/bin/
+		    cp /tmp/openshift-origin-client-tools-v3.9.0-191fece-linux-64bit/oc /usr/local/bin/
 		    chmod +x /usr/local/bin/oc
                     oc version
 		  """
