@@ -53,6 +53,16 @@ node {
                 //echo 'CMSetup value is' ${params.CMSetup}
                 sh './goldenpath.sh'
         }
+	stage('Download OC') {
+
+		sh """
+		    curl -L https://github.com/openshift/origin/releases/download/v3.9.0/openshift-origin-client-tools-v3.9.0-191fece-linux-64bit.tar.gz | \
+    			tar xz --directory /tmp/
+		    cp oc /usr/local/bin/
+		    chmod +x /usr/local/bin/oc
+		  """
+
+	}
 }
 
 
