@@ -63,8 +63,7 @@ node {
 		    echo $pwd
 		    ls -l
 		    cp /tmp/openshift-origin-client-tools-v3.9.0-191fece-linux-64bit/oc /usr/local/bin/
-		    chmod +x /usr/local/bin/oc
-                    oc version
+		    /lib/ld-musl-x86_64.so.1 --library-path /lib /usr/local/bin/oc version
 		  """
 		}
 	}
