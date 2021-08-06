@@ -50,6 +50,7 @@ spec:
   license:
     accept: false
     use: production
+    license: ''
   tokenManagementService:
     enabled: true
     storage:

@@ -73,3 +73,4 @@ spec:
   license:
     accept: false
     use: production
+    license: ''
