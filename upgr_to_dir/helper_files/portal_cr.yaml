@@ -1,0 +1,70 @@
+
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+
+apiVersion: portal.apiconnect.ibm.com/v1beta1
+kind: PortalCluster
+metadata:
+  name: portal
+  labels: {
+    app.kubernetes.io/instance: "portal",
+    app.kubernetes.io/managed-by: "ibm-apiconnect",
+    app.kubernetes.io/name: "portal"
+  }
+spec:
+  version: $APP_PRODUCT_VERSION
+  profile: $PROFILE
+  imagePullSecrets:
+    - $SECRET_NAME
+  imageRegistry: $DOCKER_REGISTRY
+  portalAdminEndpoint:
+    annotations:
+      cert-manager.io/issuer: ingress-issuer
+    hosts:
+    - name: api.portal.$STACK_HOST
+      secretName: portal-admin
+  portalUIEndpoint:
+    annotations:
+      cert-manager.io/issuer: ingress-issuer
+    hosts:
+    - name: portal.$STACK_HOST
+      secretName: portal-web
+  databaseVolumeClaimTemplate:
+    storageClassName: $STORAGE_CLASS
+    volumeSize: 15Gi
+  databaseLogsVolumeClaimTemplate:
+    storageClassName: $STORAGE_CLASS
+    volumeSize: 6Gi
+  webVolumeClaimTemplate:
+    storageClassName: $STORAGE_CLASS
+    volumeSize: 8Gi
+  backupVolumeClaimTemplate:
+    storageClassName: $STORAGE_CLASS
+    volumeSize: 15Gi
+  adminVolumeClaimTemplate:
+    storageClassName: $STORAGE_CLASS
+    volumeSize: 6Gi
+  certVolumeClaimTemplate:
+    storageClassName: $STORAGE_CLASS
+    volumeSize: 4Gi
+  adminClientSubjectDN: CN=portal-admin-client,O=cert-manager
+  microServiceSecurity: certManager
+  certManagerIssuer:
+    name: selfsigning-issuer
+    kind: Issuer
+  license:
+    accept: false
+    use: production
+    license: ''

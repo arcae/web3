@@ -1,0 +1,50 @@
+
+apiVersion: analytics.apiconnect.ibm.com/v1beta1
+kind: AnalyticsCluster
+metadata:
+  name: analytics
+spec:
+  version: $APP_PRODUCT_VERSION
+  license:
+    accept: true
+    use: production
+    license: ''
+  profile: $PROFILE
+  imagePullSecrets:
+  - $SECRET_NAME
+  imageRegistry: $DOCKER_REGISTRY
+  microServiceSecurity: certManager
+  certManagerIssuer:
+    name: selfsigning-issuer
+    kind: Issuer
+  ingestion:
+    endpoint:
+      annotations:
+        cert-manager.io/issuer: ingress-issuer
+      hosts: 
+      - name: ai.$STACK_HOST
+        secretName: analytics-ai-endpoint
+    clientSubjectDN: CN=analytics-ingestion-client,O=cert-manager
+  storage:
+    type: shared
+    shared:
+      volumeClaimTemplate:
+        storageClassName: $STORAGE_CLASS
+        volumeSize: $DATA_VOLUME_SIZE
+  external:
+    offload:
+      enabled: true
+      filter: |
+        ruby {
+          add_field => { "foo_%{somefield}" => "Hello world, from %{host}" }
+        }
+      output: |
+        opensearch {
+          hosts => ["$EXTERNAL_HOST_URL"]
+          index => "$INDEX_ALIAS_OR_NAME"
+          user => "$USERNAME"
+          password => "$PASSWORD"
+          ssl => true
+          ssl_certificate_verification => false
+        }
+      passwordSecretName: ''

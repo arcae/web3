@@ -1,0 +1,98 @@
+
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#     http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+---
+
+apiVersion: v1
+data:
+  ca.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURIVENDQWdXZ0F3SUJBZ0lSQVBCN09ET3p0VE1HSzVqblRxcXl0UFF3RFFZSktvWklodmNOQVFFTEJRQXcKTERFVk1CTUdBMVVFQ2hNTVkyVnlkQzF0WVc1aFoyVnlNUk13RVFZRFZRUURFd3BwYm1keVpYTnpMV05oTUI0WApEVEl3TURjek1URXhNelUxTUZvWERUSXdNVEF5T1RFeE16VTFNRm93TERFVk1CTUdBMVVFQ2hNTVkyVnlkQzF0CllXNWhaMlZ5TVJNd0VRWURWUVFERXdwcGJtZHlaWE56TFdOaE1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0MKQVE4QU1JSUJDZ0tDQVFFQXVpMW9FZnRJek50Ny9kdllvYjhmbnZGRlo5aTVraCtmMkpndlNNVTh4Zk5PSnNJUgpkcEVLS1lCWUtRTDEyZG5HbFoxajdtZ3FqYXhUUForc2lwQm5taEZzM1Q2cmJYYmZvNGZWbFBsVy9QSDlGTVEzCmwzN29oNFFkQkhLVDJ5ZTZoRmt1c3IvdmhPRlBrSVFxRG5GY2hwN2NrTHVaOEw0aGNwZGRjaGgxaDdxR3NTb2YKYnh0azQybmJoR3BLVXZCNnlzK04wZy85M2VWaTNkcXI4bXJwczlGOWVMSCtQM0g1RVRhTGoyUFdYL0ZjV2t2VgpNMlV5VkplbG1uTnFGd3J1ckFBU3NCTTllOHRSb2tGZmhHY2tOWi9sNStGY0Y3Nk42ZWdsam92Ylp5a0lNb1lSCmNiY1VNZTBrdVJaMzRtS2hjcy8rdUovQ0dDYUhhR1NEWmg1U0tRSURBUUFCb3pvd09EQU9CZ05WSFE4QkFmOEUKQkFNQ0FxUXdEd1lEVlIwVEFRSC9CQVV3QXdFQi96QVZCZ05WSFJFRURqQU1nZ3BwYm1keVpYTnpMV05oTUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQkFRQ0FoUzFNQnM4Qnd1b002K0VsVHJ1WkNwWHBWbGx2MllkRjlHbmVnU0RvCnJMdFcvNDJLVDlPcStKdWN6TmtVRVoxcU1ZTEZPeVRsZ0hwaHZKOTJJR2p0ZnJRcHprRE1NWGhYbW1haXJvUXQKdVlpc2dkMTZrbjJiZy9sS29LUTFUTU4rUi92UlpYVHpXdVZrc2tFbllGWUp0OXQ5V1NJemdXR2NqaUFOdFhuawo1YmNVczByUXUyUHdCWHhCSHk1NVlSVFRIQnNHTDdUT0Ewc1NzV2JhbEVSYU4vVXFuOEw1Zm51VnV3WndQK0s1CnlpM0M0SUZoR09rejVRdnVYUmRaRG1VTW8vUXNqck1HWVRvdmpvZUQ1bmNJM2NiTmVyNWsxZHdjNGZjTkpBU3oKVnVaQU5TSE5Hb0JjM012SkVvcDcrVjFTdnl1aUdURWlYOEJhWUlOWVdYZVgKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURIVENDQWdXZ0F3SUJBZ0lSQVBCN09ET3p0VE1HSzVqblRxcXl0UFF3RFFZSktvWklodmNOQVFFTEJRQXcKTERFVk1CTUdBMVVFQ2hNTVkyVnlkQzF0WVc1aFoyVnlNUk13RVFZRFZRUURFd3BwYm1keVpYTnpMV05oTUI0WApEVEl3TURjek1URXhNelUxTUZvWERUSXdNVEF5T1RFeE16VTFNRm93TERFVk1CTUdBMVVFQ2hNTVkyVnlkQzF0CllXNWhaMlZ5TVJNd0VRWURWUVFERXdwcGJtZHlaWE56TFdOaE1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0MKQVE4QU1JSUJDZ0tDQVFFQXVpMW9FZnRJek50Ny9kdllvYjhmbnZGRlo5aTVraCtmMkpndlNNVTh4Zk5PSnNJUgpkcEVLS1lCWUtRTDEyZG5HbFoxajdtZ3FqYXhUUForc2lwQm5taEZzM1Q2cmJYYmZvNGZWbFBsVy9QSDlGTVEzCmwzN29oNFFkQkhLVDJ5ZTZoRmt1c3IvdmhPRlBrSVFxRG5GY2hwN2NrTHVaOEw0aGNwZGRjaGgxaDdxR3NTb2YKYnh0azQybmJoR3BLVXZCNnlzK04wZy85M2VWaTNkcXI4bXJwczlGOWVMSCtQM0g1RVRhTGoyUFdYL0ZjV2t2VgpNMlV5VkplbG1uTnFGd3J1ckFBU3NCTTllOHRSb2tGZmhHY2tOWi9sNStGY0Y3Nk42ZWdsam92Ylp5a0lNb1lSCmNiY1VNZTBrdVJaMzRtS2hjcy8rdUovQ0dDYUhhR1NEWmg1U0tRSURBUUFCb3pvd09EQU9CZ05WSFE4QkFmOEUKQkFNQ0FxUXdEd1lEVlIwVEFRSC9CQVV3QXdFQi96QVZCZ05WSFJFRURqQU1nZ3BwYm1keVpYTnpMV05oTUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQkFRQ0FoUzFNQnM4Qnd1b002K0VsVHJ1WkNwWHBWbGx2MllkRjlHbmVnU0RvCnJMdFcvNDJLVDlPcStKdWN6TmtVRVoxcU1ZTEZPeVRsZ0hwaHZKOTJJR2p0ZnJRcHprRE1NWGhYbW1haXJvUXQKdVlpc2dkMTZrbjJiZy9sS29LUTFUTU4rUi92UlpYVHpXdVZrc2tFbllGWUp0OXQ5V1NJemdXR2NqaUFOdFhuawo1YmNVczByUXUyUHdCWHhCSHk1NVlSVFRIQnNHTDdUT0Ewc1NzV2JhbEVSYU4vVXFuOEw1Zm51VnV3WndQK0s1CnlpM0M0SUZoR09rejVRdnVYUmRaRG1VTW8vUXNqck1HWVRvdmpvZUQ1bmNJM2NiTmVyNWsxZHdjNGZjTkpBU3oKVnVaQU5TSE5Hb0JjM012SkVvcDcrVjFTdnl1aUdURWlYOEJhWUlOWVdYZVgKLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+  tls.key: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFb2dJQkFBS0NBUUVBdWkxb0VmdEl6TnQ3L2R2WW9iOGZudkZGWjlpNWtoK2YySmd2U01VOHhmTk9Kc0lSCmRwRUtLWUJZS1FMMTJkbkdsWjFqN21ncWpheFRQWitzaXBCbm1oRnMzVDZyYlhiZm80ZlZsUGxXL1BIOUZNUTMKbDM3b2g0UWRCSEtUMnllNmhGa3Vzci92aE9GUGtJUXFEbkZjaHA3Y2tMdVo4TDRoY3BkZGNoaDFoN3FHc1NvZgpieHRrNDJuYmhHcEtVdkI2eXMrTjBnLzkzZVZpM2RxcjhtcnBzOUY5ZUxIK1AzSDVFVGFMajJQV1gvRmNXa3ZWCk0yVXlWSmVsbW5OcUZ3cnVyQUFTc0JNOWU4dFJva0ZmaEdja05aL2w1K0ZjRjc2TjZlZ2xqb3ZiWnlrSU1vWVIKY2JjVU1lMGt1UlozNG1LaGNzLyt1Si9DR0NhSGFHU0RaaDVTS1FJREFRQUJBb0lCQUNkbTRMV2RodVRFTnRPZApLWlhoeXlGcVVwUU56QWhlNVFlRC9jM2E0R2ZNZkdlN2Z0S25FNDJBK2llRDF1QktOTHNKV2xMa2ZNMExBWHJ6ClJpTDFPTmZraERPMnhiVWZDV21rbjlFdGkvbHdoVzFWc2FaQVY1b0duZFdKSWoycGhOSHB4ZlpTcExCc3R0Z1IKQUkyWjlFa1JhZ0MvazI3ZDdscEFLcWl4QUg2KzRIdndqTmxCWU0xNWdrMzF1UmRQc2NNTUQyZ0lOdFVpOS9QYwpVeWhkWFhaUFFDdjc5bVliRHVPSjN1dTR2eXJqL2lsRC9rbXg4Kzl4dHZtUUJRcVlZaEpIS2JEZkQ2Q2ZOWWg2CjlXVW0ydTBxWVBiU1RZeG1VdXpqOEV1MEhSWnhiZEZhbEYzV1lnRHlWYjJLdlcrWXJ5Ym5nYktTMGFEdEVVMjEKNmdsVkNRRUNnWUVBeWE5NzNIdi9xQVc5bXNVa0pKVm14bE81SW1aeVpoM0JtRFVIR1R3Y3pWWGdHVlkwUEhFUwpIbFVJZUpkMWNobVJkZ2g5OEZGUHYzUUY4UHB2Z3F1dm1ZaGVoWjF6RmhKMjVadzVHVUNsdE8vZ0IwZEZDOTEwCnE1VlI2Y1hnSUQzTHYyZkd6UWp5djlCRnNpNGdJeTZFaUxrUjU4TG02WVk4c0tORzFBVmUwOWtDZ1lFQTdGREUKelRKcGVsNGc1K2VNQWJGcVljT0ExYnRJa0R0bVp0UUN6ZkphMlhLUWw5MmJXdXpOUC9GYi9LU1Z4L3lpc2VwQgowQnN2aEZsSStoTHluZkxoSWw2MU9oYklkSDZBeWp2OTUyU2tPK3ltdy8xMm5mNHgxQmlWMTYzZEVoOEUxVVhpCnRjUGJlazRDYmFLd2J5bjBNY0xQcjhoK0hKdUpBajJVMlVvWmp0RUNnWUFQd3psSStCLzQvOG5ieU1DVVkyRE8KNjBneTJoTGl6RHlQS3NYTlFSZDNMTmtBNGUzZk0yOFpFOGcvdElhblRqeENIMVBJYm5KdklpQTh2elhyM29NdwoycW1ZZzcrMDMraU85WEM0K29aNDU2NTRveWRRVUJTSVBIbFViZlNnVUhRV0Y0UkFEZ3o2MU1vOXJNRXlQclo1CkFRM1hNVEplMmZEd1ZUSjU2NW1Ic1FLQmdGMFliSTlSM3MvQUtVSnlxMnMzVTJ0ME0xci96dFJUTWtJc0gzYTIKbFNlNHhGR3ZrYlkrTjVXTEpldmZnc29vTW9mWWUxamFmTnVzdU4wYmZjelBrL1dRVGVDMmZQMjNvRkVMVlRsRgpJcFlnNG9tdlhuMWJXSkh2cFlnMEREVkpWd1FWNWZ3cFRsdGVSQUtnNXRURU9Ga3FIOXRtSnBocWhZMEdhWTg0CmE5MGhBb0dBRVVXei80OGdVWnRhV3Q5TXZ0U0ZNMnJWOUNEOTcwblZYWFk1eWVDdGFtaGhGQlJYYkYvM0dGRHcKZ3dFT2VBbE5nKzB5MDVzWndqWWRUN05LZ2VzTXJQMGJJS014bklZc2lFUEEwWWRyQmlKRmY5Rk9HMkpqaFFPZwpKcDVMQ1NUejlIS0QyZk9UWlBaZFZtRzVDS0UzWU16U2RNUlFyQmtYdTlPSUUrbnI2MUk9Ci0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg==
+kind: Secret
+metadata:
+  name: ingress-ca
+  labels: {
+    app.kubernetes.io/instance: "management",
+    app.kubernetes.io/managed-by: "ibm-apiconnect",
+    app.kubernetes.io/name: "ingress-ca"
+  }
+type: kubernetes.io/tls
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: ingress-issuer
+  labels: {
+    app.kubernetes.io/instance: "management",
+    app.kubernetes.io/managed-by: "ibm-apiconnect",
+    app.kubernetes.io/name: "ingress-issuer"
+  }
+spec:
+  ca:
+    secretName: ingress-ca
+apiVersion: cert-manager.io/v1
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: gateway-service
+  labels: {
+    app.kubernetes.io/instance: "gatewaycluster",
+    app.kubernetes.io/managed-by: "ibm-apiconnect",
+    app.kubernetes.io/name: "gateway-service"
+  }
+spec:
+  commonName: gateway-service
+  secretName: gateway-service
+  issuerRef:
+    name: ingress-issuer
+  usages:
+  - "client auth"
+  - "signing"
+  - "key encipherment"
+  duration: 17520h # 2 years
+  renewBefore: 48h
+  secretTemplate:
+    labels:
+      app.kubernetes.io/instance: "gatewaycluster"
+      app.kubernetes.io/managed-by: "ibm-apiconnect"
+      app.kubernetes.io/name: "gateway-service"
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: gateway-peering
+  labels: {
+    app.kubernetes.io/instance: "gatewaycluster",
+    app.kubernetes.io/managed-by: "ibm-apiconnect",
+    app.kubernetes.io/name: "gateway-peering"
+  }
+spec:
+  commonName: gateway-peering
+  secretName: gateway-peering
+  issuerRef:
+    name: ingress-issuer
+  usages:
+  - "server auth"
+  - "client auth"
+  - "signing"
+  - "key encipherment"
+  duration: 17520h # 2 years
+  renewBefore: 48h
+  secretTemplate:
+    labels:
+      app.kubernetes.io/instance: "gatewaycluster"
+      app.kubernetes.io/managed-by: "ibm-apiconnect"
+      app.kubernetes.io/name: "gateway-peering"
