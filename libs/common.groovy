@@ -9,7 +9,7 @@ def run_test(){
         echo "${error}"
     } finally {
         echo "From Finally in lib method"
-        // junit '*.xml'
+        return error
     }
 }
 
