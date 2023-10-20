@@ -27,16 +27,4 @@ node ('agent1') {
         }
         echo errMsg
     }
-
-    stage('notify') {
-        if (isFailed) {
-            emailext body: errMsg, subject: "${currentBuild.fullDisplayName} - FAILED", to: env.NOTIFY_EMAIL
-
-            slackSend channel: '#blah',
-                color: 'danger',
-                message: "Pipeline job ${currentBuild.fullDisplayName} failed: ${errMsg}"
-
-            error(errMsg)
-        }
-    }
 }
