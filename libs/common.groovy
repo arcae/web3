@@ -6,7 +6,7 @@ def run_test(){
         sh 'sleep 300'
     } catch (error) {
         echo "Suite:  -- test failed"
-        return error
+        echo "${error}"
     } finally {
         echo "From Finally in lib method"
         // junit '*.xml'
