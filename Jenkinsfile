@@ -1,5 +1,5 @@
 
-node ('exec-python3') {
+node ('agent1') {
 
     stage ('Checkout repo'){
 
@@ -15,7 +15,7 @@ node ('exec-python3') {
     stage ('Test stage') {
 
         try {
-            sh 'exit 1'
+            echo "Hello from web3"
         }
         catch (exception e) {
             echo 'Exception occurred: ' + e.toString()
