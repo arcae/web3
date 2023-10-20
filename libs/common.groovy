@@ -11,3 +11,5 @@ def run_test(){
         // junit '*.xml'
     }
 }
+
+return this;
