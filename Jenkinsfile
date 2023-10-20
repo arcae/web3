@@ -4,13 +4,26 @@ import hudson.tasks.test.AbstractTestResultAction
 def isFailed = false
 def errMsg = ""
 
-def commonlib = load('Libs/common.groovy')
-
 node ('agent1') {
     try {
         timeout(time:1, unit:'MINUTES') {
             stage('sleep') {
-                commonlib.run_test()
+                // Git checkout before load source the file
+                checkout scm
+
+                // To know files are checked out or not
+                sh '''
+                    ls -lhrt
+                '''
+
+                def rootDir = pwd()
+                println("Current Directory: " + rootDir)
+
+                // point to exact source file
+                def example = load "${rootDir}/libs/common.groovy"
+
+                example.run_test()
+                
             }
         }
     } catch(Exception e) {
