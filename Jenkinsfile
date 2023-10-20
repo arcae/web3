@@ -31,7 +31,9 @@ node ('agent1') {
         cause = ""
 
         if (e.hasProperty('causes')) {
+            echo "{$e}"
             cause = e.causes.get(0)
+            echo "${cause}"
         } else {
             cause = "Runtime error"
         }
