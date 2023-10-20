@@ -4,7 +4,7 @@ import hudson.tasks.test.AbstractTestResultAction
 def isFailed = false
 def errMsg = ""
 
-def commonlib = loadFromSCM('Libs/common.groovy')
+def commonlib = load('Libs/common.groovy')
 
 node ('agent1') {
     try {
