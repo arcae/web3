@@ -29,7 +29,7 @@ node ('agent1') {
     } catch(Exception e) {
         isFailed = true
         cause = ""
-
+        echo "{$e}"
         if (e.hasProperty('causes')) {
             echo "{$e}"
             cause = e.causes.get(0)
