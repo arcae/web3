@@ -1,11 +1,16 @@
+import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
+import hudson.tasks.test.AbstractTestResultAction
+
 def isFailed = false
 def errMsg = ""
+
+def commonlib = loadFromSCM('Libs/common.groovy')
 
 node ('agent1') {
     try {
         timeout(time:1, unit:'MINUTES') {
             stage('sleep') {
-                sh 'sleep 300'
+                commonlib.run_test()
             }
         }
     } catch(Exception e) {
