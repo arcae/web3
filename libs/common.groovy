@@ -7,7 +7,16 @@ def run_test(){
     } catch (error) {
         echo "Suite:  -- test failed"
         echo "${error}"
-        throw new Exception ('Hit timout exception')
+        cause = ""
+        echo "This is in lib : {$error}"
+        if (error.hasProperty('causes')) {
+            echo "{$error}"
+            cause = error.causes.get(0)
+            echo "${cause}"
+        } else {
+            cause = "Runtime error"
+        }
+        throw new Exception ("$cause")
     } finally {
         echo "From Finally in lib method"
     }
