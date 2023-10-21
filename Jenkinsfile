@@ -32,32 +32,28 @@ node ('agent1') {
             }
         }
     } catch(Exception e) {
-        isFailed = true
-        cause = ""
-        errstr = "$e"
-        echo "This is in main Jenkinsfile: $e"
-        if (e.hasProperty('causes')) {
-            echo "{$e}"
-            cause = e.causes.get(0)
-            echo "${cause}"
-        } else if (errstr.contains('ExceededTimeout')){
-            cause = "Build Timed out in run test"
-        } 
-        else {
-            cause = "Runtime error"
-        }
-
-        if (cause == "Runtime error") {
-            errMsg = "Runtime error"
-        } else if (cause instanceof org.jenkinsci.plugins.workflow.steps.TimeoutStepExecution.ExceededTimeout) {
-            errMsg = "Build timed out"
-        } else if ( cause == "Build Timed out in run test"){
-            errMsg = "Build Timed out in run test"
-        } 
-        else {
-            errMsg = "Build aborted by user"
-        }
-        echo errMsg
-        currentBuild.result = "FAILURE"
+        echo "Printing Error"
+            cause = ""
+            errstr = "$e"
+            if (e.hasProperty('causes')) {
+                cause = e.causes.get(0)
+            } else if (errstr.contains('ExceededTimeout')){
+                cause = "Build Timed out in pytest stage"
+            } 
+            else {
+                cause = "Runtime error"
+            }
+            if (cause == "Runtime error") {
+                errMsg = "Runtime error"
+            } else if (cause instanceof org.jenkinsci.plugins.workflow.steps.TimeoutStepExecution.ExceededTimeout) {
+                errMsg = "Build timed out"
+            } else if ( cause == "Build Timed out in pytest stage"){
+                errMsg = "Build Timed out when running pytests"
+            } 
+            else {
+                errMsg = "Build aborted by user"
+            }
+            echo errMsg
+            currentBuild.result = "FAILURE"
     }
 }
