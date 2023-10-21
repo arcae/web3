@@ -7,9 +7,9 @@ def run_test(){
     } catch (error) {
         echo "Suite:  -- test failed"
         echo "${error}"
+        throw new Exception ('Hit timout exception')
     } finally {
         echo "From Finally in lib method"
-        return error
     }
 }
 
