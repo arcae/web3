@@ -23,6 +23,13 @@ node ('agent1') {
                 // sh 'sleep 300'
                 
             }
+            stage('Deploy'){
+                echo 'Sleeping for 60 sec in stage Deploy'
+                sh 'sleep 60'
+            }
+            stage('Test'){
+                echo "This is stage Test"
+            }
         }
     } catch(Exception e) {
         isFailed = true
