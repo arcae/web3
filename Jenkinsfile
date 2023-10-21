@@ -54,6 +54,6 @@ node ('agent1') {
                 errMsg = "Build aborted by user"
             }
             echo errMsg
-            currentBuild.result = "FAILURE"
+            currentBuild.result = "UNSTABLE"
     }
 }
