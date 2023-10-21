@@ -32,7 +32,10 @@ node ('agent1') {
             echo "{$e}"
             cause = e.causes.get(0)
             echo "${cause}"
-        } else {
+        } else if (e.contains('ExceededTimeout')){
+            cause = "Build Timed out in run test"
+        } 
+        else {
             cause = "Runtime error"
         }
 
@@ -40,7 +43,10 @@ node ('agent1') {
             errMsg = "Runtime error"
         } else if (cause instanceof org.jenkinsci.plugins.workflow.steps.TimeoutStepExecution.ExceededTimeout) {
             errMsg = "Build timed out"
-        } else {
+        } else if ( cause == "Build Timed out in run test"){
+            errMsg = "Build Timed out in run test"
+        } 
+        else {
             errMsg = "Build aborted by user"
         }
         echo errMsg
