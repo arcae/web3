@@ -27,12 +27,13 @@ node ('agent1') {
     } catch(Exception e) {
         isFailed = true
         cause = ""
-        echo "This is in main Jenkinsfile: {$e}"
+        errstr = "$e"
+        echo "This is in main Jenkinsfile: $e"
         if (e.hasProperty('causes')) {
             echo "{$e}"
             cause = e.causes.get(0)
             echo "${cause}"
-        } else if (e.contains('ExceededTimeout')){
+        } else if (errstr.contains('ExceededTimeout')){
             cause = "Build Timed out in run test"
         } 
         else {
