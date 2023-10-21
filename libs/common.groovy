@@ -16,7 +16,7 @@ def run_test(){
         } else {
             cause = "Runtime error"
         }
-        // throw new Exception ("$cause")
+        throw new Exception ("$cause")
     } finally {
         echo "From Finally in lib method"
     }
