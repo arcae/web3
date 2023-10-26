@@ -8,3 +8,5 @@ check_subsys_status ()
 
 }
 
+check_subsys_status()
+

@@ -21,7 +21,7 @@ node ('agent1') {
 
                 // example.run_test()
                 sh 'scripts/testscript.sh'
-                sh 'sleep 300'
+                // sh 'sleep 300'
                 
             }
             stage('Deploy'){
