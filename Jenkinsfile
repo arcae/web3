@@ -6,7 +6,7 @@ def errMsg = ""
 
 node ('agent1') {
     try {
-        timeout(time:1, unit:'MINUTES') {
+        timeout(time:1, unit:'HOURS') {
             stage('sleep') {
                 // Git checkout before load source the file
                 checkout scm
@@ -20,6 +20,7 @@ node ('agent1') {
                 def example = load "${rootDir}/libs/common.groovy"
 
                 // example.run_test()
+                sh 'scripts/testscript.sh'
                 sh 'sleep 300'
                 
             }
