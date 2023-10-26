@@ -26,7 +26,7 @@ node ('agent1') {
             }
             stage('Deploy'){
                 echo 'Sleeping for 60 sec in stage Deploy'
-                sh 'sleep 60'
+                sh 'sleep 10'
             }
             stage('Test'){
                 echo "This is stage Test"
