@@ -13,11 +13,11 @@ def run_test(){
             echo "{$error}"
             cause = error.causes.get(0)
             echo "${cause}"
+            throw new Exception ("$cause")
         } else {
             cause = "Runtime error"
         }
-        // throw new Exception ("$cause")
-        throw
+        
     } finally {
         echo "From Finally in lib method"
     }
