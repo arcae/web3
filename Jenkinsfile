@@ -30,7 +30,13 @@ node ('agent1') {
             }
             stage('Test'){
                 echo "This is stage Test"
+                sh 'scripts/testscript.sh'
             }
+            stage('Topo'){
+
+                echo 'This is Topo stage'
+            }
+
         }
     } catch(Exception e) {
         echo "Printing Error"
