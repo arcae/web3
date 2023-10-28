@@ -3,7 +3,7 @@
 def run_test(){
     try {
         echo "The value of DEPLOY is deploy"
-        sh 'sleep 300'
+        sh 'exit 1'
     } catch (error) {
         echo "Suite:  -- test failed"
         echo "${error}"

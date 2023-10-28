@@ -19,8 +19,8 @@ node ('agent1') {
                 // point to exact source file
                 def example = load "${rootDir}/libs/common.groovy"
 
-                // example.run_test()
-                sh 'scripts/testscript.sh'
+                example.run_test()
+                // sh 'scripts/testscript.sh'
                 // sh 'sleep 300'
                 
             }
