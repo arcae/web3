@@ -29,8 +29,10 @@ node ('agent1') {
                 sh 'sleep 10'
             }
             stage('Test'){
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
                 echo "This is stage Test"
                 sh 'scripts/testscript.sh'
+                }
             }
             stage('Topo'){
 
