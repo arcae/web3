@@ -16,7 +16,7 @@ def run_test(){
             throw new Exception ("$cause")
         } else {
             cause = "Runtime error"
-            unstable('Test Failure')
+            error('Test Failure')
         }
         
     } finally {
