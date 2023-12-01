@@ -34,6 +34,15 @@ node ('agent1') {
                 sh 'scripts/testscript.sh'
                 }
             }
+            stage(Test Retstatus){
+                def retstatus = sh(returnStatus: true, script: 'scripts/testscript.sh')
+                if (retstatus != 0) {
+                    echo "Error: Command exited with status ${retstatus}"
+                } else {
+                    echo "Command executed successfully"
+                }
+
+            }
             stage('Topo'){
 
                 echo 'This is Topo stage'
