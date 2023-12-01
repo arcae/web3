@@ -34,7 +34,7 @@ node ('agent1') {
                 sh 'scripts/testscript.sh'
                 }
             }
-            stage(Test Retstatus){
+            stage('Returnstatus'){
                 def retstatus = sh(returnStatus: true, script: 'scripts/testscript.sh')
                 if (retstatus != 0) {
                     echo "Error: Command exited with status ${retstatus}"
