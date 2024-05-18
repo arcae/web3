@@ -24,6 +24,9 @@ node ('agent1') {
                 // sh 'sleep 300'
                 
             }
+            stage('Call job'){
+                build 'gitlab-proj'
+            }
             stage('Deploy'){
                 echo 'Sleeping for 60 sec in stage Deploy'
                 sh 'sleep 10'
