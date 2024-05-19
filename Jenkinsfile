@@ -30,25 +30,25 @@ node ('agent1') {
             stage('Call docker param job'){
                 build job: 'docker', parameters: [string(name: 'PARAM1', value: 'No')]
             }
-            stage('Deploy'){
-                echo 'Sleeping for 60 sec in stage Deploy'
-                sh 'sleep 10'
-            }
-            stage('Test'){
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
-                echo "This is stage Test"
-                sh 'scripts/testscript.sh'
-                }
-            }
-            stage('Returnstatus'){
-                def retstatus = sh(returnStatus: true, script: 'scripts/testscript.sh')
-                if (retstatus != 0) {
-                    echo "Error: Command exited with status ${retstatus}"
-                } else {
-                    echo "Command executed successfully"
-                }
+            // stage('Deploy'){
+            //     echo 'Sleeping for 60 sec in stage Deploy'
+            //     sh 'sleep 10'
+            // }
+            // stage('Test'){
+            //     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
+            //     echo "This is stage Test"
+            //     sh 'scripts/testscript.sh'
+            //     }
+            // }
+            // stage('Returnstatus'){
+            //     def retstatus = sh(returnStatus: true, script: 'scripts/testscript.sh')
+            //     if (retstatus != 0) {
+            //         echo "Error: Command exited with status ${retstatus}"
+            //     } else {
+            //         echo "Command executed successfully"
+            //     }
 
-            }
+            // }
             stage('Topo'){
 
                 echo 'This is Topo stage'
