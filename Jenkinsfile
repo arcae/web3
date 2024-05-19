@@ -35,7 +35,7 @@ node ('agent1') {
                     blockBuildUntilComplete: true,
                     pollInterval: 120,
                     shouldNotFailBuild: true,
-                    parameters: "${PARAM1}")
+                    parameters: "${PARAM1}\n")
 
                 // triggerRemoteJob job: 'http://9.46.95.28:8080/job/docker', parameters: StringParameters(parameters: 'PARAM1=\'No\''), useCrumbCache: true, useJobInfoCache: true
             }
