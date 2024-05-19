@@ -28,6 +28,9 @@ node ('agent1') {
                 build 'gitlab-proj'
             }
             stage('Call docker param job'){
+                withCredentials([
+                    usernameColonPassword(credentialsId: 'docker-job-cred', variable: 'jenkins')
+                ])
                 // build job: 'docker', parameters: [string(name: 'PARAM1', value: 'No')]
                 def jobUrl = "http://9.46.95.28:8080/job/docker"
                 def PARAM1 = "No"
@@ -35,7 +38,9 @@ node ('agent1') {
                     blockBuildUntilComplete: true,
                     pollInterval: 120,
                     shouldNotFailBuild: true,
-                    parameters: "${PARAM1}\n")
+                    parameters: "${PARAM1}\n",
+                    auth: CredentialsAuth(credentials: 'docker-job-cred'))
+                    
 
                 // triggerRemoteJob job: 'http://9.46.95.28:8080/job/docker', parameters: StringParameters(parameters: 'PARAM1=\'No\''), useCrumbCache: true, useJobInfoCache: true
             }
