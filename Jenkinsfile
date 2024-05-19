@@ -35,7 +35,8 @@ node ('agent1') {
                     blockBuildUntilComplete: true,
                     pollInterval: 120,
                     shouldNotFailBuild: true,
-                    parameters: "${PARAM1}\n"
+                    parameters: "${PARAM1}\n",
+                    auth: CredentialsAuth(credentials: '1b578f3c-60bb-44a5-8a9b-d909d3f94059')
                     )
                     
 
