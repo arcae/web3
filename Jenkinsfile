@@ -24,8 +24,11 @@ node ('agent1') {
                 // sh 'sleep 300'
                 
             }
-            stage('Call job'){
+            stage('Call gitlab job'){
                 build 'gitlab-proj'
+            }
+            stage('Call docker param job'){
+                build job: 'docker', parameters: [string(name: 'PARAM1', value: 'No')]
             }
             stage('Deploy'){
                 echo 'Sleeping for 60 sec in stage Deploy'
