@@ -31,11 +31,13 @@ node ('agent1') {
                 // build job: 'docker', parameters: [string(name: 'PARAM1', value: 'No')]
                 def jobUrl = "https://http://9.46.95.28:8080/job/docker"
                 def PARAM1 = "No"
-                triggerRemoteJob (job: jobUrl,
-                    blockBuildUntilComplete: true,
-                    pollInterval: 120,
-                    shouldNotFailBuild: true,
-                    parameters: "${PARAM1}")
+                // triggerRemoteJob (job: jobUrl,
+                //     blockBuildUntilComplete: true,
+                //     pollInterval: 120,
+                //     shouldNotFailBuild: true,
+                //     parameters: "${PARAM1}")
+
+                triggerRemoteJob job: 'http://9.46.95.28:8080/job/docker', parameters: StringParameters(parameters: 'PARAM1=\'No\''), useCrumbCache: true, useJobInfoCache: true
             }
             // stage('Deploy'){
             //     echo 'Sleeping for 60 sec in stage Deploy'
