@@ -36,7 +36,7 @@ node ('agent1') {
                     pollInterval: 120,
                     shouldNotFailBuild: true,
                     parameters: "${PARAM1}\n",
-                    auth: CredentialsAuth(credentials: 'jenkins')
+                    auth: CredentialsAuth(credentials: 'jenkinsadmin')
                     )
                     
 
