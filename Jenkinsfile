@@ -5,6 +5,7 @@ def isFailed = false
 def errMsg = ""
 
 node ('agent1') {
+    withCredentials([ usernameColonPassword(credentialsId: 'docker-job-cred', variable: 'jenkins') ])
     try {
         timeout(time:1, unit:'HOURS') {
             stage('sleep') {
@@ -28,9 +29,6 @@ node ('agent1') {
                 build 'gitlab-proj'
             }
             stage('Call docker param job'){
-                withCredentials([
-                    usernameColonPassword(credentialsId: 'docker-job-cred', variable: 'jenkins')
-                ])
                 // build job: 'docker', parameters: [string(name: 'PARAM1', value: 'No')]
                 def jobUrl = "http://9.46.95.28:8080/job/docker"
                 def PARAM1 = "No"
