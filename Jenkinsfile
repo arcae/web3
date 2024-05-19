@@ -33,7 +33,7 @@ node ('agent1') {
                 def PARAM1 = "No"
                 triggerRemoteJob (job: jobUrl,
                     blockBuildUntilComplete: true,
-                    pollInterval: 120,
+                    pollInterval: 10,
                     shouldNotFailBuild: true,
                     parameters: "${PARAM1}\n",
                     auth: CredentialsAuth(credentials: 'Jenkinsadmin')
