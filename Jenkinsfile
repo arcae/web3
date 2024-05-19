@@ -5,7 +5,9 @@ def isFailed = false
 def errMsg = ""
 
 node ('agent1') {
-    withCredentials([ usernameColonPassword(credentialsId: 'docker-job-cred', variable: 'jenkins') ])
+    withCredentials([ 
+        usernameColonPassword(credentialsId: 'docker-job-cred', variable: 'jenkins') 
+        ])
     try {
         timeout(time:1, unit:'HOURS') {
             stage('sleep') {
