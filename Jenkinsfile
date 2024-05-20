@@ -25,7 +25,10 @@ node ('agent1') {
                 
             }
             stage('Call gitlab job'){
-                build 'gitlab-proj'
+                def checkjob = build 'gitlab-proj'
+                checklog = Jenkins.getInstance().getItemByFullName('job name').getBuildByNumber(checkjob.getNumber()).log
+                println checklog
+
             }
             stage('Call docker param job'){
                 // build job: 'docker', parameters: [string(name: 'PARAM1', value: 'No')]
