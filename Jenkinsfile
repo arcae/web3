@@ -36,6 +36,7 @@ node ('agent1') {
                     pollInterval: 10,
                     shouldNotFailBuild: true,
                     parameters: "${PARAM1}\n",
+                    enhancedLogging: true,
                     auth: CredentialsAuth(credentials: 'Jenkinsadmin')
                     )
                     
